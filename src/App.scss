@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 90vh;
+}
+
+.main-wrapper {
+  border: 1px solid #888;
+  max-width: 500px;
+  width: 100%;
+}

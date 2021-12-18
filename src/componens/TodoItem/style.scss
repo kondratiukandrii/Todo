@@ -1,0 +1,41 @@
+@import "../../variables.scss";
+
+.item {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border:1px solid #ddd;
+    min-height: 20px;
+    transition: background 256ms ease-in-out ;
+    padding: 0.5em 1em;
+    background: $yellowlighten-3;
+
+    .completed {
+        text-decoration: line-through;
+        opacity: 0.5;
+    }
+
+    &:hover {
+        background: #b2dfdb;
+    }
+    p {
+        margin: 0;
+        width: 100%;
+        padding: 0 1em;
+        text-align: left;
+
+    }
+    .button {
+        background: $teallighten-3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius:50%;
+        line-height: 0;
+    }
+
+
+}
