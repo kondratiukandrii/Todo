@@ -4,7 +4,7 @@ import TodoHeader from "./componens/TodoHeader";
 import TodoList from "./componens/TodoList";
 
 function App() {
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")));
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todos")) || [] );
 
   const addTodo = (newTodo) => {
     if (!newTodo.text) {
@@ -17,6 +17,7 @@ function App() {
     const filteredTodos = todos.filter((item) => item.id !== todoId);
     setTodos(filteredTodos);
   };
+   
 
   const editTodo = (updatedTodo) => {
     const newTodos = todos.map((itemTodo) => {
@@ -28,6 +29,15 @@ function App() {
     });
     setTodos(newTodos);
   };
+
+  useEffect(() => {
+    if (todos.length) return;
+    fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
+      .then((response) => response.json())
+      .then((json) => {
+        setTodos(json);
+      });
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
